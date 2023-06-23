@@ -9,6 +9,23 @@ The
 3. Input Mutation: In addition to the exact patterns, the script introduces some randomness by using mutation functions (delete_random_character, insert_random_character, change_random_character). It means the script is not just using known patterns but also variants of them, which makes it more likely to find edge cases.
 4. Updating Priorities: The script uses a priority dictionary to keep track of which input patterns have caused unexpected behavior. Inputs that cause unusual behavior have their priority increased. This is another characteristic of directed fuzzing: the script is learning and adapting its input selection based on feedback from the application.
 
+# DVWA PHP Script for Directed Fuzzing
+This section discusses how the provided PHP script, which is part of the Damn Vulnerable Web Application (DVWA), helps in performing directed fuzzing for SQL Injection.
+
+## PHP Script Analysis
+The PHP Script for DVWA can be checked at [local host](http://localhost/Dvwa/vulnerabilities/view_source.php?id=sqli&security=low), after installing dvwa successfully on localhost.
+The script is designed to retrieve and display user information based on the id parameter provided through a request. It supports two database types: MySQL and SQLite.
+
+### Input Retrieval
+if( isset( $_REQUEST[ 'Submit' ] ) ) {
+    // Get input
+    $id = $_REQUEST[ 'id' ];
+    // ...
+}
+This section gets the input from the user through the id parameter. The input is stored in the variable $id.
+
+Here's a breakdown of the key portions of the script that are relevant for directed fuzzing:
+
 
 # Fuzzer Project
 
