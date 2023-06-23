@@ -64,10 +64,9 @@ If you do not have Python installed, download and install Python 3 from the [off
 
 ### Step 5: Install Required Python Libraries
 
-install the necessary Python libraries using pip in the notebook first:
+Install the necessary Python libraries using pip in the notebook first:
 
 pip install selenium
-pip install coverage
 
 ### How the Fuzzer Works
 The Fuzzer Project automates a Chrome browser to interact with DVWA. The script will:
