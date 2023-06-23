@@ -1,4 +1,6 @@
 # This Project is aimed at doing "Directed Fuzzing."
+This Project is an automation script designed to perform fuzzing on the Damn Vulnerable Web Application (DVWA). 
+It tests DVWA against various SQL injection patterns and analyzes the application's response to identify potential security vulnerabilities.
 This document describes how the provided Python script performs directed fuzzing on the SQL Injection vulnerability page of the Damn Vulnerable Web Application (DVWA).
 This fuzzing code is "directed" because it targets specific SQL injection vulnerabilities by using both known problematic input patterns and variations of them. 
 The 
@@ -23,11 +25,6 @@ The script is designed to retrieve and display user information based on the id 
 1. Identifiable Vulnerability: Since the script directly interpolates user input into a SQL query, it has an obvious SQL Injection vulnerability. This allows a directed fuzzer to target this specific vulnerability by providing SQL payloads as input.
 2. Input Feedback Loop: The script provides feedback by displaying the results of the query back to the user. This feedback can be analyzed by the fuzzer to identify successful exploitation (such as retrieving unintended data).
 3. Adaptability: The script can be exploited using various payloads tailored for different SQL databases (MySQL, SQLite). A directed fuzzer can adapt its input patterns based on the response to exploit the particular database being used.
-
-# Fuzzer Project
-
-This Project is an automation script designed to perform security testing on the Damn Vulnerable Web Application (DVWA). 
-It tests DVWA against various SQL injection patterns and analyzes the application's response to identify potential security vulnerabilities.
 
 ## Prerequisites
 
