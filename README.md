@@ -12,7 +12,7 @@ The
 4. Updating Priorities: The script uses a priority dictionary to keep track of which input patterns have caused unexpected behavior. Inputs that cause unusual behavior have their priority increased. This is another characteristic of directed fuzzing: the script is learning and adapting its input selection based on feedback from the application.
 
 # DVWA PHP Script for Directed Fuzzing
-This section discusses how the provided PHP script, which is part of the Damn Vulnerable Web Application (DVWA), helps in performing directed fuzzing for SQL Injection.
+This section discusses how the PHP script, which is part of the Damn Vulnerable Web Application (DVWA), helps in performing directed fuzzing for SQL Injection.
 
 ## PHP Script Analysis
 The PHP Script for DVWA can be checked at [local host](http://localhost/Dvwa/vulnerabilities/view_source.php?id=sqli&security=low), after installing dvwa successfully on localhost.
