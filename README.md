@@ -15,17 +15,14 @@ This section discusses how the provided PHP script, which is part of the Damn Vu
 ## PHP Script Analysis
 The PHP Script for DVWA can be checked at [local host](http://localhost/Dvwa/vulnerabilities/view_source.php?id=sqli&security=low), after installing dvwa successfully on localhost.
 The script is designed to retrieve and display user information based on the id parameter provided through a request. It supports two database types: MySQL and SQLite.
+1. It gets the input from the user through the id parameter. The input is stored in the variable $id.
+2. The $id variable is directly interpolated into the query string. This is a potential SQL Injection vulnerability because if $id contains malicious SQL code, it can modify the structure of the query.
+3. The script executes the SQL query and displays the first name and last name of the users whose user_id matches the input $id. The results are displayed back to the end user.
 
-### Input Retrieval
-if( isset( $_REQUEST[ 'Submit' ] ) ) {
-    // Get input
-    $id = $_REQUEST[ 'id' ];
-    // ...
-}
-This section gets the input from the user through the id parameter. The input is stored in the variable $id.
-
-Here's a breakdown of the key portions of the script that are relevant for directed fuzzing:
-
+## How the Script Supports Directed Fuzzing
+1. Identifiable Vulnerability: Since the script directly interpolates user input into a SQL query, it has an obvious SQL Injection vulnerability. This allows a directed fuzzer to target this specific vulnerability by providing SQL payloads as input.
+2. Input Feedback Loop: The script provides feedback by displaying the results of the query back to the user. This feedback can be analyzed by the fuzzer to identify successful exploitation (such as retrieving unintended data).
+3. Adaptability: The script can be exploited using various payloads tailored for different SQL databases (MySQL, SQLite). A directed fuzzer can adapt its input patterns based on the response to exploit the particular database being used.
 
 # Fuzzer Project
 
