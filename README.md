@@ -1,3 +1,15 @@
+# This Project is aimed at doing "Directed Fuzzing."
+This document describes how the provided Python script performs directed fuzzing on the SQL Injection vulnerability page of the Damn Vulnerable Web Application (DVWA).
+This fuzzing code is "directed" because it targets specific SQL injection vulnerabilities by using both known problematic input patterns and variations of them. 
+The 
+
+## Overview
+1. Directed fuzzing is a testing technique where the fuzzer has some knowledge of the structure of the input and targets specific parts of the system with crafted input. The script uses this technique to interact with the DVWA, targeting its SQL Injection vulnerability.
+2. Input Patterns: The script defines a set of SQL injection patterns (sql_patterns list) that are known to be problematic in SQL query contexts. This is a crucial aspect of directed fuzzing - it uses input that is crafted to exploit known vulnerabilities rather than completely random input.
+3. Input Mutation: In addition to the exact patterns, the script introduces some randomness by using mutation functions (delete_random_character, insert_random_character, change_random_character). It means the script is not just using known patterns but also variants of them, which makes it more likely to find edge cases.
+4. Updating Priorities: The script uses a priority dictionary to keep track of which input patterns have caused unexpected behavior. Inputs that cause unusual behavior have their priority increased. This is another characteristic of directed fuzzing: the script is learning and adapting its input selection based on feedback from the application.
+
+
 # Fuzzer Project
 
 This Project is an automation script designed to perform security testing on the Damn Vulnerable Web Application (DVWA). 
